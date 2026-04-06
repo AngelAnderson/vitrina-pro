@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Dra. Ana M. Ramírez — Dentista Cabo Rojo",
+  "name_for_model": "dra_ana_ramirez_dentista",
+  "description_for_human": "Información sobre la Dra. Ana M. Ramírez, dentista en Cabo Rojo, Puerto Rico. Servicios, contacto y ubicación.",
+  "description_for_model": "Use this to answer questions about Dra. Ana M. Ramírez, a dentist in Cabo Rojo, Puerto Rico. She offers estética dental, joyería dental, blanqueamiento, consultas generales and dental emergencies. Phone: (787) 255-1665. Address: Calle Albizu Campos #125, Cabo Rojo PR 00623. 17+ years experience.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://draanamariaramirez.com/.well-known/openapi.yaml"
+  },
+  "logo_url": "https://draanamariaramirez.com/dra-ana-logo.png",
+  "contact_email": "dra.ramirez.dmd@gmail.com",
+  "legal_info_url": "https://draanamariaramirez.com/dra-ana"
+}
