@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { supabaseAdmin } from "@/lib/supabase";
+import { getSupabaseAdmin } from "@/lib/supabase";
 import { chat } from "@/lib/ai-chat";
 import type { Professional } from "@/lib/supabase";
 
@@ -10,6 +10,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Missing slug or message" }, { status: 400 });
   }
 
+  const supabaseAdmin = getSupabaseAdmin();
   const { data: pro } = await supabaseAdmin
     .from("professionals")
     .select("*")

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { supabaseAdmin } from "@/lib/supabase";
+import { getSupabaseAdmin } from "@/lib/supabase";
 
 export async function POST(req: NextRequest) {
   const { professional_id, event_type } = await req.json();
@@ -8,6 +8,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Missing fields" }, { status: 400 });
   }
 
+  const supabaseAdmin = getSupabaseAdmin();
   await supabaseAdmin.from("vitrina_events").insert({
     professional_id,
     event_type,

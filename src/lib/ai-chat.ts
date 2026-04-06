@@ -1,7 +1,9 @@
 import OpenAI from "openai";
 import type { Professional } from "./supabase";
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+function getOpenAI() {
+  return new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+}
 
 function buildSystemPrompt(pro: Professional): string {
   const serviceList = pro.services
@@ -52,7 +54,7 @@ export async function chat(
   pro: Professional,
   message: string
 ): Promise<string> {
-  const response = await openai.chat.completions.create({
+  const response = await getOpenAI().chat.completions.create({
     model: "gpt-4o-mini",
     messages: [
       { role: "system", content: buildSystemPrompt(pro) },
