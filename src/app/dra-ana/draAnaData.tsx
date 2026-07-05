@@ -161,7 +161,6 @@ export const draAnaJsonLd = {
           name: "Universidad de Puerto Rico — Escuela de Medicina Dental",
         },
       },
-      sameAs: ["https://caborojo.com/dra-ana-ramirez"],
     },
     {
       "@type": "FAQPage",
