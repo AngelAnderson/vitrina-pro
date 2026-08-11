@@ -27,12 +27,21 @@ export const draAnaMetadata: Metadata = {
     url: `${BASE_URL}/`,
     siteName: "Dra. Ana M. Ramírez — Dentista",
     locale: "es_PR",
+    images: [
+      {
+        url: `${BASE_URL}/dra-ana-og.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "Dra. Ana M. Ramírez — Dentista en Cabo Rojo, PR — (787) 255-1665",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Dra. Ana M. Ramírez — Dentista en Cabo Rojo, PR",
     description:
       "Estética dental, blanqueamiento, joyería dental y emergencias. 17+ años de experiencia.",
+    images: [`${BASE_URL}/dra-ana-og.jpg`],
   },
   robots: {
     index: true,
