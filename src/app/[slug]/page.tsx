@@ -1,4 +1,5 @@
 import { supabase } from "@/lib/supabase";
+import { tienePermisoPublico } from "@/lib/consentimiento";
 import type { Professional, GalleryItem } from "@/lib/supabase";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -25,7 +26,16 @@ export async function generateMetadata({
   const { slug } = await params;
   const pro = await getProfessional(slug);
   if (!pro) return { title: "No encontrado" };
+  // Sin permiso del dueno la pagina existe pero NO se indexa. 6 de las 7 filas de
+  // `professionals` son plantillas de demostracion de personas reales que nunca
+  // pidieron una pagina. Ver src/lib/consentimiento.ts.
+  const robots = tienePermisoPublico(slug)
+    ? undefined
+    : { index: false, follow: false, nocache: true,
+        googleBot: { index: false, follow: false } };
+
   return {
+    ...(robots ? { robots } : {}),
     title: `${pro.name} — ${pro.profession} en Cabo Rojo`,
     description:
       pro.tagline ||
