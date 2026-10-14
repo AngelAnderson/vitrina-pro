@@ -55,12 +55,13 @@ export async function chat(
   message: string
 ): Promise<string> {
   const response = await getOpenAI().chat.completions.create({
-    model: "gpt-4o-mini",
+    model: "gpt-6-luna",
+    reasoning_effort: "none",
     messages: [
       { role: "system", content: buildSystemPrompt(pro) },
       { role: "user", content: message },
     ],
-    max_tokens: 200,
+    max_completion_tokens: 200,
     temperature: 0.7,
   });
 
