@@ -247,6 +247,12 @@ export function DraAnaContent() {
 
   const bodyMatch = html.match(/<body[^>]*>([\s\S]*)<\/body>/i);
   const styleMatch = html.match(/<style>([\s\S]*?)<\/style>/i);
+  // 12 nov 2026: dirección completa en el pie, igual que el JSON-LD de arriba.
+  // Pasar este cambio a template.html en el próximo deploy y borrar el replace.
+  const body = bodyMatch?.[1].replace(
+    "Consultorio Dental<br>Cabo Rojo, Puerto Rico 00623",
+    "Avenida Pedro Albizu Campos #125<br>Cabo Rojo, Puerto Rico 00623"
+  );
 
   return (
     <>
@@ -257,7 +263,7 @@ export function DraAnaContent() {
       {styleMatch && (
         <style dangerouslySetInnerHTML={{ __html: styleMatch[1] }} />
       )}
-      {bodyMatch && <div dangerouslySetInnerHTML={{ __html: bodyMatch[1] }} />}
+      {body && <div dangerouslySetInnerHTML={{ __html: body }} />}
     </>
   );
 }
